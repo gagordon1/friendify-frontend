@@ -1,8 +1,6 @@
 import { SpotifyProfileImage } from './TrackAndArtistStyled'
 import DefaultProfile from '../assets/default_profile.png'
 import styled from 'styled-components'
-import { useState, useEffect } from 'react'
-
 const UserInfoContainer = styled.div`
   position : fixed;
   top: 50%;

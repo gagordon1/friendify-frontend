@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getUserProfile, getTopItems, getTopObscureItems } from '../controllers/spotify-controller'
+import { getTopItems, getTopObscureItems } from '../controllers/spotify-controller'
 import Track from './Track'
-import Artist from './Artist'
 import { ContentContainer } from './TrackAndArtistStyled'
 
 export default function TrackContainer(props){
@@ -9,21 +8,14 @@ export default function TrackContainer(props){
 
   const [trackData, setTrackData] = useState([])
 
-  const [userInfo, setUserInfo] = useState({
-    images : [],
-    external_urls : [],
-    display_name : "",
-    id : ""
-  });
-
 
   useEffect(()=>{
     const loadData = async () =>{
-      if(props.accessToken && props.type == "track"){
+      if(props.accessToken && props.type === "tracks"){
         const items = await getTopItems(props.accessToken, props.type, props.time)
         setTrackData(items)
       }
-      else if(props.accessToken && props.type == "obscure-tracks" ){
+      else if(props.accessToken && props.type === "obscure-tracks" ){
         const items = await getTopObscureItems(props.accessToken, props.type, props.time)
         setTrackData(items)
       }

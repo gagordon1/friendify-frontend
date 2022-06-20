@@ -26,7 +26,7 @@ export default function Track(props){
     if (playing && props.audioSource !== props.data.preview_url){
       setPlaying(false)
     }
-  }, [props.audioSource])
+  }, [playing, props.audioSource, props.data.preview_url])
 
   return (
     <Tile>

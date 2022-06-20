@@ -1,6 +1,6 @@
 import './App.css';
-import { REDIRECT_URI, AUTH_ENDPOINT, RESPONSE_TYPE, SCOPE, BACKEND_URL,
-  CLIENT_ID, REFRESH_TOKEN_ENDPOINT } from './config';
+import { REDIRECT_URI, AUTH_ENDPOINT, RESPONSE_TYPE, SCOPE,
+  CLIENT_ID } from './config';
 import {useEffect, useState} from 'react';
 import PageContent from './Pages/PageContent'
 import { authorizeFromCode, getUserProfile } from './controllers/spotify-controller'
@@ -10,17 +10,13 @@ import ReactAudioPlayer from 'react-audio-player'
 
 
 function App() {
-    const [refreshToken, setRefreshToken] = useState("")
     const [accessToken, setAccessToken] = useState("")
     const [loading, setLoading] = useState(false)
-    const [userInfo, setUserInfo] = useState({})
-    const [layout, setLayout] = useState("single")
     const [hostUser, setHostUser] = useState("")
     const [audioSource, setAudioSource] = useState("")
 
     const logout = () => {
         setAccessToken("")
-        setRefreshToken("")
         window.localStorage.removeItem("code")
         window.localStorage.removeItem("accessToken")
         window.localStorage.removeItem("refreshToken")
@@ -36,7 +32,6 @@ function App() {
         const accessTok = result.access_token
         const refreshTok = result.refresh_token
         setAccessToken(accessTok)
-        setRefreshToken(refreshTok)
         window.localStorage.setItem("accessToken", accessTok)
         window.localStorage.setItem("refreshToken", refreshTok)
 
@@ -73,7 +68,6 @@ function App() {
 
       if (accessTok && refreshTok){
         setAccessToken(accessTok)
-        setRefreshToken(refreshTok)
       }
       //otherwise check if we haven't authorized yet
       else if (!code){

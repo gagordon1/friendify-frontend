@@ -13,8 +13,8 @@ export function getTopGenres(userData){
     })
   )
 
-  const artists = Object.entries(userArtists).
-    sort((a,b) => {return b[1] - a[1]}).map(arr => arr[0]).slice(0,5)
+  const artists = Object.entries(userArtists)
+  .sort((a,b) => {return b[1] - a[1]}).map(arr => arr[0]).slice(0,5)
 
   return artists
 }
@@ -27,7 +27,5 @@ export function getAveragePopularity(data){
   }else{
     return 0
   }
-
-  return 69
 
 }

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import TrackContainer from './TrackContainer'
 import styled from 'styled-components'
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getRefreshToken } from '../controllers/backend-controller'
 import { authorizeFromRefreshToken, getUserProfile } from '../controllers/spotify-controller'
-import TrackContainer from '../components/TrackContainer'
 import { SelectContainer } from '../components/SelectContainer'
 import SelectBox from '../components/SelectBox'
 import UserInfo from '../components/UserInfo'
@@ -49,7 +48,7 @@ export default function ComparePage(props){
     }
 
     loadHostUser();
-  }, [])
+  }, [props.hostUser])
 
   useEffect(() =>{
     const loadUserData = async ()=>{
@@ -74,7 +73,7 @@ export default function ComparePage(props){
       <ComparePageContainer>
         <UserInfo userInfo={hostUserInfo} left={"85%"}/>
         <UserInfo userInfo={userInfo} left={"15%"}/>
-        {(type === "tracks" || type == "artists")?
+        {(type === "tracks" || type === "artists")?
           <TopItems
             accessToken={props.accessToken}
             hostAccessToken={hostAccessToken}
