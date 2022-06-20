@@ -3,6 +3,7 @@ import { SpotifyImage, TitleAndArtist, Tile,
 import { useState, useEffect} from 'react'
 import PlayButtonImage from '../assets/play_button.svg'
 import PauseButtonImage from '../assets/pause_button.svg'
+import DefaultImage from '../assets/default_profile.png'
 
 
 
@@ -31,13 +32,13 @@ export default function Track(props){
   return (
     <Tile>
       <PlayPause onClick={handleClick}>
-        <SpotifyImage src={props.data.album.images[0].url} />
+        <SpotifyImage src={(props.data.album && props.data.album.images.length > 0)? props.data.album.images[0].url : DefaultImage} />
         {!playing? <PlayButton src={PlayButtonImage}/> : null}
         <PauseButton src={PauseButtonImage} display={playing? "flex" : "none"}/>
       </PlayPause>
       <TitleAndArtist>
         <TrackTitle>{props.data.name} </TrackTitle>
-        <Artists>{props.data.artists.map(obj => obj.name).join(", ")} </Artists>
+        <Artists>{props.data.artists?.map(obj => obj.name).join(", ")} </Artists>
       </TitleAndArtist>
     </Tile>
   )

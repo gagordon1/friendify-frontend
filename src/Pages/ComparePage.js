@@ -10,7 +10,8 @@ import styled from "styled-components"
 const typeOptions = {
     "Top Tracks" : "tracks",
     "Top Artists" : "artists",
-    "Most Obscure Tracks" : "obscure-tracks"
+    "Most Obscure Tracks" : "obscure-tracks",
+    "Most Obscure Artists" : "obscure-artists"
   }
 
 const timeOptions = {
@@ -82,7 +83,7 @@ export default function ComparePage(props){
             audioSource={props.audioSource}
             setAudioSource={props.setAudioSource}
             /> : null}
-        {(type === "obscure-tracks")?
+        {(type === "obscure-tracks" || type === "obscure-artists")?
           <ObscureTracks
             accessToken={props.accessToken}
             hostAccessToken={hostAccessToken}

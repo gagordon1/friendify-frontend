@@ -25,6 +25,7 @@ export const PauseButton = styled.img`
 export const SpotifyImage = styled.img`
   width : 74px;
   height : 74px;
+  object-fit : cover;
   ${PlayPause}:hover &{
     filter: brightness(50%);
   }
@@ -51,6 +52,15 @@ export const TitleAndArtist = styled.div`
 
 export const Tile = styled.div`
   max-width : 200px;
+  display : flex;
+  margin-left : auto;
+  margin-right : auto;
+  align-items: center;
+  margin-bottom : 10px;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+`
+export const ArtistTile = styled.div`
+  max-width : 150px;
   display : flex;
   margin-left : auto;
   margin-right : auto;

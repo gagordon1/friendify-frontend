@@ -31,10 +31,17 @@ export default function ComparisonStats (props){
         setData(topItems)
         let hostTopItems = await getTopItems(props.hostAccessToken, props.type, props.time)
         setHostData(hostTopItems)
-        let artists = await getArtists(props.accessToken, topItems)
-        setArtistData(artists.data.artists)
-        let hostArtists = await getArtists(props.hostAccessToken, hostTopItems)
-        setHostArtistData(hostArtists.data.artists)
+        if (props.type !== "artists" && props.type !== "obscure-artists"){
+          let artists = await getArtists(props.accessToken, topItems)
+          setArtistData(artists.data.artists)
+          let hostArtists = await getArtists(props.hostAccessToken, hostTopItems)
+          setHostArtistData(hostArtists.data.artists)
+        }
+        else{
+          setArtistData(topItems)
+          setHostArtistData(hostTopItems)
+        }
+
       }
 
     }
