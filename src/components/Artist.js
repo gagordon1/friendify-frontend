@@ -3,12 +3,27 @@ import DefaultImage from '../assets/default_profile.png'
 
 export default function Artist(props){
 
+  const getImage = () =>{
+    try{
+      return props.data.images[0].url
+    }catch(error){
+      return DefaultImage
+    }
+  }
+
+  const getName = ()=>{
+    try{
+      return props.data.name
+    }catch(error){
+      return ""
+    }
+  }
+
   return (
     <ArtistTile>
-      <SpotifyImage src={(props.data.images && props.data.images.length > 0)?
-        props.data.images[0].url : DefaultImage}/>
+      <SpotifyImage src={getImage()}/>
       <TitleAndArtist>
-        <TrackTitle> {props.data.name} </TrackTitle>
+        <TrackTitle> {getName()} </TrackTitle>
       </TitleAndArtist>
     </ArtistTile>
   )

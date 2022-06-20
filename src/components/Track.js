@@ -11,6 +11,26 @@ export default function Track(props){
 
   const [playing, setPlaying] = useState(false)
 
+  const getName = () => {try{return props.data.name}catch(error){return ""}}
+
+  const getImageSource = () =>{
+    try{
+      return props.data.album.images[0].url
+    }catch(error){
+      return DefaultImage
+    }
+
+  }
+
+  const getArtists = () =>{
+    try{
+      return props.data.artists.map(obj => obj.name).join(", ")
+    }
+    catch(error){
+      return ""
+    }
+  }
+
   const handleClick = async (event) => {
     if (props.audioSource === props.data.preview_url && playing){
       setPlaying(false)
@@ -32,13 +52,13 @@ export default function Track(props){
   return (
     <Tile>
       <PlayPause onClick={handleClick}>
-        <SpotifyImage src={(props.data.album && props.data.album.images.length > 0)? props.data.album.images[0].url : DefaultImage} />
+        <SpotifyImage src={getImageSource()} />
         {!playing? <PlayButton src={PlayButtonImage}/> : null}
         <PauseButton src={PauseButtonImage} display={playing? "flex" : "none"}/>
       </PlayPause>
       <TitleAndArtist>
-        <TrackTitle>{props.data.name} </TrackTitle>
-        <Artists>{props.data.artists?.map(obj => obj.name).join(", ")} </Artists>
+        <TrackTitle>{getName()} </TrackTitle>
+        <Artists>{getArtists()} </Artists>
       </TitleAndArtist>
     </Tile>
   )
