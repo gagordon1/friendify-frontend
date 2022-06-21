@@ -1,4 +1,4 @@
-const DEVLOPMENT = false;
+const DEVELOPMENT = false;
 
 const LOCAL_SERVER = "http://localhost:3000"
 
