@@ -3,6 +3,7 @@ import DefaultProfile from '../assets/default_profile.png'
 import styled from 'styled-components'
 
 const SingleUserInfoContainer = styled.div`
+  margin-top : 50px;
   position : relative;
 `
 

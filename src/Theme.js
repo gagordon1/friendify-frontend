@@ -6,7 +6,8 @@ export const colors = {
 export const devices = {
   mobile: 330,
   mobileL: 500,
-  tablet: 1200,
+  tablet: 800,
+  tabletL: 1200,
   laptop: 1600,
   laptopL: 1800
 };

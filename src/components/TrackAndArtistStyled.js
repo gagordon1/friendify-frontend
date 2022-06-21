@@ -58,6 +58,9 @@ export const TitleAndArtist = styled.div`
   height : 100%;
   text-align : left;
   margin-left : 20px;
+  @media (max-width : ${devices.mobielL}px) {
+    margin-left : 10px;
+  }
 `
 
 export const Tile = styled.div`
@@ -67,7 +70,10 @@ export const Tile = styled.div`
   align-items: center;
   margin-bottom : 10px;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-  max-width : 150px;
+  max-width : 250px;
+  @media (max-width : ${devices.mobileL}px) {
+    max-width : 150px;
+  }
 `
 export const ArtistTile = styled.div`
   max-width : 150px;
@@ -89,12 +95,11 @@ export const TrackTitle = styled.h5`
 `
 
 export const ContentContainer = styled.div`
-  width : 100%;
-  margin-top : 30px;
+  width : ${devices.mobile}px;
+  margin-top : 50px;
   justify-content: center;
-
-  @media (max-width : ${devices.mobileL}px){
-    font-size : ${fontSizes.mobile}px;
+  @media (max-width : ${devices.tablet}px){
+    width : 100%;
   }
 `
 export const Artists = styled.a`

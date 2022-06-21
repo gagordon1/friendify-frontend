@@ -48,7 +48,7 @@ export default function ComparisonStats (props){
   }, [props.accessToken, props.hostAccessToken, props.time, props.type])
   return (
     <StatsContainer>
-      <StatContainer title={"Average Popularity Score"} user={getAveragePopularity(data)} hostUser={getAveragePopularity(hostData)}/>
+      <StatContainer title={"Popularity Score"} user={getAveragePopularity(data)} hostUser={getAveragePopularity(hostData)}/>
     </StatsContainer>
   )
 }

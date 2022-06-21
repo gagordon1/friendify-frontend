@@ -8,9 +8,6 @@ const Container = styled.div`
 `
 
 const Title = styled.h3`
-  @media (max-width : ${devices.mobileL}px){
-    font-size : ${fontSizes.mobile}px;
-  }
 `
 
 export default function StatContainer(props){

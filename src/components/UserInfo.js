@@ -6,9 +6,12 @@ import { devices } from '../Theme'
 const UserInfoContainer = styled.div`
   position : fixed;
   top: 50%;
-  left : ${props => props.left};
   transform: translate(-50%, -50%);
-  @media (max-width: ${devices.tablet}px) {
+  left : 50%;
+  margin-left : ${props => props.marginLeft}px;
+  width : 500px;
+  @media (max-width: ${devices.tabletL}px) {
+    width : 100%;
     position : relative;
     margin : auto;
     top : auto;
@@ -20,7 +23,7 @@ const UserInfoContainer = styled.div`
 export default function UserInfo(props){
 
   return(
-    <UserInfoContainer top={props.top} left={props.left}>
+    <UserInfoContainer top={props.top} marginLeft={props.marginLeft}>
       <SpotifyProfileImage src={(!props.userInfo.images || props.userInfo.images.length === 0)? DefaultProfile
         : props.userInfo.images[0].url}/>
       <h1> {props.userInfo.display_name} </h1>

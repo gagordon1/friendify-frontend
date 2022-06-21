@@ -72,8 +72,8 @@ export default function ComparePage(props){
   return(
     <div>
       <UserInfoBox>
-        <UserInfo userInfo={userInfo} left={"15%"}/>
-        <UserInfo userInfo={hostUserInfo} left={"85%"}/>
+        <UserInfo userInfo={userInfo} marginLeft={-500}/>
+        <UserInfo userInfo={hostUserInfo} marginLeft={500}/>
       </UserInfoBox>
       <SelectContainer>
         <SelectBox title={"Type"}options={typeOptions} onChange={e => setType(e.target.value)}/>
