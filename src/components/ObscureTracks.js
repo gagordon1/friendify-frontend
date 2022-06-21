@@ -1,6 +1,6 @@
 import TrackContainer from './TrackContainer'
 import styled from 'styled-components'
-import GenerateBlendPlayist from './GenerateBlendPlaylist'
+import GenerateBlendPlaylist from './GenerateBlendPlaylist'
 
 const DataGrid = styled.div`
   position : relative;
@@ -14,7 +14,7 @@ export default function ObscureTracks(props){
 
   return (
     <div>
-      <GenerateBlendPlayist
+      <GenerateBlendPlaylist
         accessToken={props.accessToken}
         hostAccessToken={props.hostAccessToken}
         time={props.time}

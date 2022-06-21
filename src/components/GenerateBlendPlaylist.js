@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Popup from 'reactjs-popup';
 import Track from './Track'
 import { useState } from 'react'
-import { getRecommendations, getTopObscureItems,
+import { getRecommendations, getTopObscureItems, getTopItems,
   getArtists } from '../controllers/spotify-controller';
 import { getTopGenres } from '../comparison-analysis'
 
@@ -68,8 +68,13 @@ const ButtonContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
 `
 
+function randomChoice(arr) {
+    let index = Math.floor(arr.length * Math.random())
+    return arr[index];
+}
 
-export default function GenerateBlendPlayist(props){
+
+export default function GenerateBlendPlaylist(props){
 
   const [open, setOpen] = useState(false)
   const [tracks, setTracks] = useState([])
@@ -80,37 +85,35 @@ export default function GenerateBlendPlayist(props){
     let topArtists = []
     let topHostArtists = []
     //host
-    let topHostItems = await getTopObscureItems(props.hostAccessToken, props.type, props.time)
-    if (props.type === "obscure-tracks"){
-      topHostArtists = await getArtists(props.hostAccessToken, topHostItems)
-      topHostGenres = await getTopGenres(topHostArtists.data.artists)
-      console.log(topHostGenres)
-    }
-    let topItems = await getTopObscureItems(props.accessToken, props.type, props.time)
-    console.log(topItems);
-    if (props.type === "obscure-tracks"){
-      topArtists = await getArtists(props.accessToken, topItems)
-      topGenres = await getTopGenres(topArtists.data.artists)
-      console.log(topGenres)
-    }
-    const comboGenres = topGenres.slice(0,1)
-    const comboArtists = topArtists.data.artists.slice(0,1).map(obj => obj.id)
-              .concat(topHostArtists.data.artists.slice(0,2).map(obj => obj.id))
-    const comboTracks = topHostItems.slice(0,1)
-    const seedGenres = comboGenres[0]
-    const seedArtists = comboArtists.join(",")
-    const seedTracks = comboTracks[0].id
-    console.log(seedArtists)
-    console.log(seedGenres)
-    console.log(seedTracks)
+    //
+    const getItems = props.type === "obscure-tracks" ? getTopObscureItems : getTopItems
+    let topHostItems = await getItems(props.hostAccessToken, props.type, props.time)
 
-    const recs = await getRecommendations(props.accessToken, seedArtists, seedTracks, seedGenres)
-    console.log(recs)
+    topHostArtists = await getArtists(props.hostAccessToken, topHostItems)
+    topHostGenres = await getTopGenres(topHostArtists.data.artists)
+
+
+    let topItems = await getItems(props.accessToken, props.type, props.time)
+
+
+    topArtists = await getArtists(props.accessToken, topItems)
+    topGenres = await getTopGenres(topArtists.data.artists)
+
+
+
+    const comboGenres = topGenres.slice(0,1).concat(topHostGenres.slice(0,1))
+    const comboArtists = []
+    comboArtists.push(randomChoice(topArtists.data.artists))
+    comboArtists.push(randomChoice(topArtists.data.artists))
+    comboArtists.push(randomChoice(topHostArtists.data.artists))
+    const seedGenres = comboGenres.join(",")
+    const seedArtists = comboArtists.map(obj => obj.id).join(",")
+    console.log("SEED GENRES:", seedGenres)
+    console.log("SEED Artists:",comboArtists.map(obj => obj.name))
+    const recs = await getRecommendations(props.accessToken, seedArtists, seedGenres)
     setTracks(recs)
-
     //user
     setOpen(true)
-
   }
 
   return(

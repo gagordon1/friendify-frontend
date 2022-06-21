@@ -1,6 +1,7 @@
 import TrackContainer from '../components/TrackContainer'
 import ComparisonStats from '../components/ComparisonStats'
 import styled from "styled-components"
+import GenerateBlendPlaylist from "./GenerateBlendPlaylist"
 
 const DataGrid = styled.div`
   display : grid;
@@ -19,6 +20,15 @@ export default function TopItems(props){
         time={props.time}
         type={props.type}
         />
+      {props.type === "tracks"?
+          <GenerateBlendPlaylist
+            accessToken={props.accessToken}
+            hostAccessToken={props.hostAccessToken}
+            time={props.time}
+            type={props.type}
+            audioSource={props.audioSource}
+            setAudioSource={props.setAudioSource}
+          />: null}
       <DataGrid>
         <TrackContainer
           audioSource={props.audioSource}

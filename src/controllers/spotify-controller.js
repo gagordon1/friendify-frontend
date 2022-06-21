@@ -23,7 +23,7 @@ export const getTopItems = async (accessToken, type, timeRange) =>{
   return response.data.items;
 }
 
-export const getRecommendations = async (accessToken, seedArtists, seedTracks, seedGenres) =>{
+export const getRecommendations = async (accessToken, seedArtists, seedGenres) =>{
   let config = {
     headers : {
       'Authorization' : 'Bearer ' + accessToken,
@@ -31,9 +31,9 @@ export const getRecommendations = async (accessToken, seedArtists, seedTracks, s
     },
     params : {
       seed_artists : seedArtists,
-      seed_tracks : seedTracks,
       seed_genres : seedGenres,
-      limit : 50
+      limit : 25,
+      min_popularity :30
     }
   }
   const response = await axios.get(
