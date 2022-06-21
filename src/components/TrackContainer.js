@@ -38,6 +38,7 @@ export default function TrackContainer(props){
         const items = await getTopObscureItems(props.accessToken, props.type, props.time)
         setTrackData(items)
       }
+
     }
     loadData();
 
