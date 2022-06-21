@@ -20,7 +20,7 @@ const timeOptions = {
   "Long" : "long_term",
 }
 const ComparePageContainer = styled.div`
-  width : 800px;
+  width : 600px;
   display : grid;
   grid-template-columns: repeat(1, 1fr);
   justify-content : center;

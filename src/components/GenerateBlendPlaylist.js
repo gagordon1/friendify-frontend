@@ -120,7 +120,7 @@ export default function GenerateBlendPlaylist(props){
       <Button onClick={() => generateBlendPlaylist()}>
         <ButtonLabel>Generate Blend Playlist</ButtonLabel>
       </Button>
-      <Popup open={open}>
+      <Popup open={open} onClose={() => setOpen(false)}>
         <Dialogue>
           <ButtonContainer>
             <Button2 onClick={() => setOpen(false)}>

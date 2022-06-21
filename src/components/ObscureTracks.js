@@ -14,6 +14,7 @@ export default function ObscureTracks(props){
 
   return (
     <div>
+      {props.type === "obscure-tracks"?
       <GenerateBlendPlaylist
         accessToken={props.accessToken}
         hostAccessToken={props.hostAccessToken}
@@ -21,7 +22,7 @@ export default function ObscureTracks(props){
         type={props.type}
         audioSource={props.audioSource}
         setAudioSource={props.setAudioSource}
-      />
+      /> : null}
       <DataGrid>
         <TrackContainer
           audioSource={props.audioSource}

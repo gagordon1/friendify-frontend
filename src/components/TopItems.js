@@ -14,21 +14,22 @@ export default function TopItems(props){
 
   return (
     <div>
+      {props.type === "tracks"?
+        <GenerateBlendPlaylist
+          accessToken={props.accessToken}
+          hostAccessToken={props.hostAccessToken}
+          time={props.time}
+          type={props.type}
+          audioSource={props.audioSource}
+          setAudioSource={props.setAudioSource}
+        />: null}
       <ComparisonStats
         accessToken={props.accessToken}
         hostAccessToken={props.hostAccessToken}
         time={props.time}
         type={props.type}
         />
-      {props.type === "tracks"?
-          <GenerateBlendPlaylist
-            accessToken={props.accessToken}
-            hostAccessToken={props.hostAccessToken}
-            time={props.time}
-            type={props.type}
-            audioSource={props.audioSource}
-            setAudioSource={props.setAudioSource}
-          />: null}
+
       <DataGrid>
         <TrackContainer
           audioSource={props.audioSource}
