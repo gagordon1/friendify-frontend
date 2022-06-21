@@ -1,4 +1,4 @@
-
+const DEVLOPMENT = true;
 
 export const REDIRECT_URI = "http://localhost:3000";
 
@@ -19,7 +19,7 @@ export const TOP_ITEMS_ENDPOINT = "/me/top"
 //https://developer.spotify.com/documentation/general/guides/authorization/scopes/
 export const SCOPE = "user-read-recently-played playlist-read-collaborative user-top-read playlist-read-private"
 
-export const BACKEND_URL = "http://localhost:8080"
+export const BACKEND_URL = " https://friendify-backend-server.herokuapp.com"
 
 export const REFRESH_TOKEN_ENDPOINT = "/refresh-token"
 
