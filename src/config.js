@@ -26,3 +26,5 @@ export const REFRESH_TOKEN_ENDPOINT = "/refresh-token"
 export const GET_CURRENT_PROFILE_ENDPOINT = "/me"
 
 export const ARTISTS_ENDPOINT = "/artists"
+
+export const RECOMMENDATIONS_ENDPOINT = "/recommendations"

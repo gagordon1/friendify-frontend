@@ -2,7 +2,8 @@ import axios from 'axios';
 import {encode as base64_encode} from 'base-64';
 import * as qs from 'qs'
 import { TOKEN_AUTH_ENDPOINT, CLIENT_ID, REDIRECT_URI, GET_CURRENT_PROFILE_ENDPOINT,
-  CLIENT_SECRET, SPOTIFY_API_URL, TOP_ITEMS_ENDPOINT, ARTISTS_ENDPOINT } from '../config'
+  CLIENT_SECRET, SPOTIFY_API_URL, TOP_ITEMS_ENDPOINT, ARTISTS_ENDPOINT,
+  RECOMMENDATIONS_ENDPOINT } from '../config'
 
 export const getTopItems = async (accessToken, type, timeRange) =>{
   let config = {
@@ -20,6 +21,26 @@ export const getTopItems = async (accessToken, type, timeRange) =>{
     config
   )
   return response.data.items;
+}
+
+export const getRecommendations = async (accessToken, seedArtists, seedTracks, seedGenres) =>{
+  let config = {
+    headers : {
+      'Authorization' : 'Bearer ' + accessToken,
+      'Content-Type' : 'application/json'
+    },
+    params : {
+      seed_artists : seedArtists,
+      seed_tracks : seedTracks,
+      seed_genres : seedGenres,
+      limit : 50
+    }
+  }
+  const response = await axios.get(
+    SPOTIFY_API_URL + RECOMMENDATIONS_ENDPOINT,
+    config
+  )
+  return response.data.tracks;
 }
 
 export const getTopObscureItems = async (accessToken, type, timeRange) =>{

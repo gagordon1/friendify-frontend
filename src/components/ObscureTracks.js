@@ -1,7 +1,9 @@
 import TrackContainer from './TrackContainer'
 import styled from 'styled-components'
+import GenerateBlendPlayist from './GenerateBlendPlaylist'
 
 const DataGrid = styled.div`
+  position : relative;
   display : grid;
   grid-template-columns: repeat(2, 1fr);
   margin-left: auto;
@@ -11,21 +13,31 @@ const DataGrid = styled.div`
 export default function ObscureTracks(props){
 
   return (
-    <DataGrid>
-      <TrackContainer
-        audioSource={props.audioSource}
-        setAudioSource={props.setAudioSource}
-        time={props.time}
-        type={props.type}
+    <div>
+      <GenerateBlendPlayist
         accessToken={props.accessToken}
-      />
-      <TrackContainer
-        audioSource={props.audioSource}
-        setAudioSource={props.setAudioSource}
+        hostAccessToken={props.hostAccessToken}
         time={props.time}
         type={props.type}
-        accessToken={props.hostAccessToken}
+        audioSource={props.audioSource}
+        setAudioSource={props.setAudioSource}
       />
-    </DataGrid>
+      <DataGrid>
+        <TrackContainer
+          audioSource={props.audioSource}
+          setAudioSource={props.setAudioSource}
+          time={props.time}
+          type={props.type}
+          accessToken={props.accessToken}
+        />
+        <TrackContainer
+          audioSource={props.audioSource}
+          setAudioSource={props.setAudioSource}
+          time={props.time}
+          type={props.type}
+          accessToken={props.hostAccessToken}
+        />
+      </DataGrid>
+    </div>
   )
 }

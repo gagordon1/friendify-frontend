@@ -1,5 +1,5 @@
 
-
+//gets top 5 genres for artist data
 export function getTopGenres(userData){
   const userArtists = {}
   userData.forEach(
