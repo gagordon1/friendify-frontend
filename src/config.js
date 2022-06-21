@@ -1,6 +1,10 @@
-const DEVLOPMENT = true;
+const DEVLOPMENT = false;
 
-export const REDIRECT_URI = "http://localhost:3000";
+const LOCAL_SERVER = "http://localhost:3000"
+
+const PRODUCTION_SERVER = "https://friendify-frontend.herokuapp.com/"
+
+export const REDIRECT_URI = DEVELOPMENT? LOCAL_SERVER : PRODUCTION_SERVER;
 
 export const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 
