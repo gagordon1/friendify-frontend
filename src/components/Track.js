@@ -32,6 +32,7 @@ export default function Track(props){
   }
 
   const handleClick = async (event) => {
+    console.log(props.data.preview_url)
     if (props.audioSource === props.data.preview_url && playing){
       setPlaying(false)
       props.setAudioSource("")

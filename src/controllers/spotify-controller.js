@@ -32,7 +32,7 @@ export const getRecommendations = async (accessToken, seedArtists, seedGenres) =
     params : {
       seed_artists : seedArtists,
       seed_genres : seedGenres,
-      limit : 25,
+      limit : 100,
       min_popularity :30
     }
   }
@@ -40,7 +40,8 @@ export const getRecommendations = async (accessToken, seedArtists, seedGenres) =
     SPOTIFY_API_URL + RECOMMENDATIONS_ENDPOINT,
     config
   )
-  return response.data.tracks;
+  const result = response.data.tracks.filter(obj => obj.preview_url != null)
+  return result.slice(0,25);
 }
 
 export const getTopObscureItems = async (accessToken, type, timeRange) =>{

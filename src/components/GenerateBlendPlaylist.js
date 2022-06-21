@@ -109,7 +109,6 @@ export default function GenerateBlendPlaylist(props){
     const seedGenres = comboGenres.join(",")
     const seedArtists = comboArtists.map(obj => obj.id).join(",")
     console.log("SEED GENRES:", seedGenres)
-    console.log("SEED Artists:",comboArtists.map(obj => obj.name))
     const recs = await getRecommendations(props.accessToken, seedArtists, seedGenres)
     setTracks(recs)
     //user
