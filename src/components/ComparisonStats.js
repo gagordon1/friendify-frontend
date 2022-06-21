@@ -12,8 +12,7 @@ const StatsContainer = styled.div`
   grid-template-rows: 47px auto;
   justify-content : center;
   width : 100%;
-  margin-left : auto;
-  margin-right : auto;
+  margin : auto;
 `
 
 

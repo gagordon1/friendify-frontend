@@ -10,8 +10,8 @@ import styled from "styled-components"
 const typeOptions = {
     "Top Tracks" : "tracks",
     "Top Artists" : "artists",
-    "Most Obscure Tracks" : "obscure-tracks",
-    "Most Obscure Artists" : "obscure-artists"
+    "Obscure Tracks" : "obscure-tracks",
+    "Obscure Artists" : "obscure-artists"
   }
 
 const timeOptions = {
@@ -20,9 +20,14 @@ const timeOptions = {
   "Long" : "long_term",
 }
 const ComparePageContainer = styled.div`
-  width : 600px;
   display : grid;
   grid-template-columns: repeat(1, 1fr);
+  justify-content : center;
+`
+const UserInfoBox = styled.div`
+  margin-top: 30px;
+  display : flex;
+  flex-direction : row;
   justify-content : center;
 `
 
@@ -66,14 +71,16 @@ export default function ComparePage(props){
 
   return(
     <div>
-
+      <UserInfoBox>
+        <UserInfo userInfo={userInfo} left={"15%"}/>
+        <UserInfo userInfo={hostUserInfo} left={"85%"}/>
+      </UserInfoBox>
       <SelectContainer>
         <SelectBox title={"Type"}options={typeOptions} onChange={e => setType(e.target.value)}/>
         <SelectBox title={"Time Period"} options={timeOptions} onChange={e => setTime(e.target.value)}/>
       </SelectContainer>
       <ComparePageContainer>
-        <UserInfo userInfo={hostUserInfo} left={"85%"}/>
-        <UserInfo userInfo={userInfo} left={"15%"}/>
+
         {(type === "tracks" || type === "artists")?
           <TopItems
             accessToken={props.accessToken}

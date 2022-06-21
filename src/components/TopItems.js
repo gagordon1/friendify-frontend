@@ -8,6 +8,7 @@ const DataGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   margin-left: auto;
   margin-right: auto;
+  justify-content : center;
 `
 
 export default function TopItems(props){

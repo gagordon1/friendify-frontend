@@ -4,7 +4,7 @@ import { getRefreshToken } from '../controllers/backend-controller'
 import { authorizeFromRefreshToken, getUserProfile } from '../controllers/spotify-controller'
 import { SelectContainer } from '../components/SelectContainer'
 import SelectBox from '../components/SelectBox'
-import UserInfo from '../components/UserInfo'
+import SingleUserInfo from '../components/SingleUserInfo'
 import TrackContainer from '../components/TrackContainer'
 import styled from "styled-components"
 const typeOptions = {
@@ -20,9 +20,10 @@ const timeOptions = {
   "Long" : "long_term",
 }
 const ComparePageContainer = styled.div`
-  width : 600px;
   display : flex;
+  flex-direction : column;
   justify-content : center;
+  align-items : center;
 `
 
 
@@ -56,7 +57,7 @@ export default function UserPage(props){
         <SelectBox title={"Time Period"} options={timeOptions} onChange={e => setTime(e.target.value)}/>
       </SelectContainer>
       <ComparePageContainer>
-        <UserInfo userInfo={userInfo} left={"15%"}/>
+        <SingleUserInfo userInfo={userInfo}/>
         <TrackContainer
           audioSource={props.audioSource}
           setAudioSource={props.setAudioSource}

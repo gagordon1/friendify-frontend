@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { devices, fontSizes } from '../Theme'
 
 export const PlayPause = styled.div`
   display : flex;
@@ -29,10 +30,15 @@ export const SpotifyImage = styled.img`
   ${PlayPause}:hover &{
     filter: brightness(50%);
   }
+  @media (max-width : ${devices.mobileL}px){
+    width : 50px;
+    height : 50px;
+  }
 `
 
 export const SpotifyProfileImage = styled.img`
   display : flex;
+  position : relative;
   width : 200px;
   height : 200px;
   margin-left: auto;
@@ -40,6 +46,10 @@ export const SpotifyProfileImage = styled.img`
   border-radius : 50%;
   object-fit : cover;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  @media (max-width : ${devices.mobileL}px){
+    width : 100px;
+    height : 100px;
+  }
 `
 
 export const TitleAndArtist = styled.div`
@@ -51,13 +61,13 @@ export const TitleAndArtist = styled.div`
 `
 
 export const Tile = styled.div`
-  max-width : 200px;
   display : flex;
   margin-left : auto;
   margin-right : auto;
   align-items: center;
   margin-bottom : 10px;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  max-width : 150px;
 `
 export const ArtistTile = styled.div`
   max-width : 150px;
@@ -72,13 +82,24 @@ export const ArtistTile = styled.div`
 export const TrackTitle = styled.h5`
   margin-top : 2px;
   margin-bottom : 2px;
+  font-size : ${fontSizes.laptop}px;
+  @media (max-width : ${devices.mobileL}px){
+    font-size : ${fontSizes.mobile}px;
+  }
 `
 
 export const ContentContainer = styled.div`
-  width : 360px;
+  width : 100%;
   margin-top : 30px;
   justify-content: center;
+
+  @media (max-width : ${devices.mobileL}px){
+    font-size : ${fontSizes.mobile}px;
+  }
 `
 export const Artists = styled.a`
-  font-size : 12px;
+  font-size : ${fontSizes.laptop}px;
+  @media (max-width : ${devices.mobileL}px){
+    font-size : ${fontSizes.mobile}px;
+  }
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { fontSizes, devices } from '../Theme'
 
 const Container = styled.div`
   margin-top: 20px;
@@ -6,11 +7,17 @@ const Container = styled.div`
   grid-template-columns: repeat(3, 1fr);
 `
 
+const Title = styled.h3`
+  @media (max-width : ${devices.mobileL}px){
+    font-size : ${fontSizes.mobile}px;
+  }
+`
+
 export default function StatContainer(props){
   return(
     <Container>
       <h2>{props.user}</h2>
-      <h3> {props.title} </h3>
+      <Title> {props.title} </Title>
       <h2>{props.hostUser}</h2>
     </Container>
   )

@@ -13,7 +13,6 @@ const Button = styled.button`
   width: 270px;
   height: 50px;
   background: rgba(85, 85, 85, 0.05);
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
   border : none;
   &:hover{
     cursor : pointer;
@@ -29,7 +28,6 @@ const Button2 = styled.button`
   width : 100%;
   height: 50px;
   background: rgba(85, 85, 85, 0.05);
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
   border : none;
   &:hover{
     cursor : pointer;
