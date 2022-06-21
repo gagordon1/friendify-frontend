@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { fontSizes, devices } from '../Theme'
 
 const Container = styled.div`
   margin-top: 20px;

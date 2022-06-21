@@ -6,6 +6,7 @@ import SelectBox from '../components/SelectBox'
 import UserInfo from '../components/UserInfo'
 import TopItems from '../components/TopItems'
 import ObscureTracks from '../components/ObscureTracks'
+import GenerateLink from '../components/GenerateLink'
 import styled from "styled-components"
 const typeOptions = {
     "Top Tracks" : "tracks",
@@ -75,6 +76,7 @@ export default function ComparePage(props){
         <UserInfo userInfo={userInfo} marginLeft={-500}/>
         <UserInfo userInfo={hostUserInfo} marginLeft={500}/>
       </UserInfoBox>
+      <GenerateLink userInfo={userInfo}/>
       <SelectContainer>
         <SelectBox title={"Type"}options={typeOptions} onChange={e => setType(e.target.value)}/>
         <SelectBox title={"Time Period"} options={timeOptions} onChange={e => setTime(e.target.value)}/>

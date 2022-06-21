@@ -8,8 +8,8 @@ import { getTopGenres } from '../comparison-analysis'
 
 const Button = styled.button`
   position : relative;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top : 40px;;
+  margin-bottom: auto;
   width: 270px;
   height: 50px;
   background: rgba(85, 85, 85, 0.05);

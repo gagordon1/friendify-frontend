@@ -1,8 +1,12 @@
-const DEVELOPMENT = false;
+const DEVELOPMENT = true;
 
 const LOCAL_SERVER = "http://localhost:3000"
 
 const PRODUCTION_SERVER = "https://friendify-frontend.herokuapp.com/"
+
+const PRODUCTION_BACKEND_SERVER = "https://friendify-backend-server.herokuapp.com"
+
+const LOCAL_BACKEND_SERVER = "http://localhost:8080"
 
 export const REDIRECT_URI = DEVELOPMENT? LOCAL_SERVER : PRODUCTION_SERVER;
 
@@ -23,7 +27,7 @@ export const TOP_ITEMS_ENDPOINT = "/me/top"
 //https://developer.spotify.com/documentation/general/guides/authorization/scopes/
 export const SCOPE = "user-read-recently-played playlist-read-collaborative user-top-read playlist-read-private"
 
-export const BACKEND_URL = " https://friendify-backend-server.herokuapp.com"
+export const BACKEND_URL =  DEVELOPMENT? LOCAL_BACKEND_SERVER : PRODUCTION_BACKEND_SERVER
 
 export const REFRESH_TOKEN_ENDPOINT = "/refresh-token"
 

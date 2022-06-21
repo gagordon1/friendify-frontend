@@ -1,11 +1,11 @@
 
 import { useEffect, useState } from 'react';
-import { getRefreshToken } from '../controllers/backend-controller'
-import { authorizeFromRefreshToken, getUserProfile } from '../controllers/spotify-controller'
+import { getUserProfile } from '../controllers/spotify-controller'
 import { SelectContainer } from '../components/SelectContainer'
 import SelectBox from '../components/SelectBox'
 import SingleUserInfo from '../components/SingleUserInfo'
 import TrackContainer from '../components/TrackContainer'
+import GenerateLink from '../components/GenerateLink'
 import styled from "styled-components"
 const typeOptions = {
     "Top Tracks" : "tracks",
@@ -35,8 +35,6 @@ export default function UserPage(props){
 
   const [userInfo, setUserInfo] = useState({})
 
-  const [hostUserInfo, setHostUserInfo] = useState({})
-
 
   useEffect(() =>{
     const loadUserData = async ()=>{
@@ -51,7 +49,7 @@ export default function UserPage(props){
 
   return(
     <div>
-
+      <GenerateLink userInfo={userInfo}/>
       <SelectContainer>
         <SelectBox title={"Type"}options={typeOptions} onChange={e => setType(e.target.value)}/>
         <SelectBox title={"Time Period"} options={timeOptions} onChange={e => setTime(e.target.value)}/>
