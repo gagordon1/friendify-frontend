@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const Select = styled.select`
+  font-family : inherit;
   border : none;
   font-size : 16px;
   &:focus {

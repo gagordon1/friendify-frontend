@@ -7,6 +7,16 @@ import { authorizeFromCode, getUserProfile } from './controllers/spotify-control
 import { uploadRefreshToken } from './controllers/backend-controller'
 import BackgroundEllipse from './components/BackgroundEllipse'
 import ReactAudioPlayer from 'react-audio-player'
+import Logo from './assets/logo192.png'
+import styled from 'styled-components'
+
+const LogoImage = styled.img`
+  margin-top : auto;
+  margin-bottom : auto;
+  margin-right : 8px;
+  width : 50px;
+  height : 50px;
+`
 
 
 function App() {
@@ -97,6 +107,7 @@ function App() {
           <BackgroundEllipse color="rgba(253, 11, 69, 0.3)" top="400px" left="50px"/>
           <BackgroundEllipse color="rgba(20, 110, 154, 0.6)" top="0px" left="1100px"/>
           <header className="App-header">
+            <LogoImage src={Logo}/>
             <h1> Friendify </h1>
           </header>
           {loading? <div> Loading </div> : null}

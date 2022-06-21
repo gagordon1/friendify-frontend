@@ -8,6 +8,7 @@ import { getTopGenres } from '../comparison-analysis'
 
 const Button = styled.button`
   position : relative;
+  font-family : inherit;
   margin-top : 40px;;
   margin-bottom: auto;
   width: 270px;
@@ -25,6 +26,7 @@ const Button = styled.button`
 `
 const Button2 = styled.button`
   justify-self : center;
+  font-family : inherit;
   width : 100%;
   height: 50px;
   background: rgba(85, 85, 85, 0.05);
@@ -39,6 +41,7 @@ const Button2 = styled.button`
   }
 `
 const ButtonLabel = styled.h3`
+
   margin-top: auto;
   margin-bottom : auto;
 `

@@ -5,6 +5,7 @@ import { REDIRECT_URI } from '../config'
 import CopyIconImage from '../assets/copy_icon.png'
 
 const Button = styled.button`
+  font-family : inherit;
   margin-top : 20px;
   margin-bottom : 40px;
   position : relative;
